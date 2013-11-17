@@ -1,0 +1,36 @@
+
+
+<div id="login">
+<form id="form_738677"   method="post" action="/sign-up/">
+{% csrf_token %}
+{% if next %}
+<input type="hidden" name="next" value="{{ next }}" />
+{% endif %}
+<div class="control-group">
+<div class="controls">
+<input type="text" id="element_1" style="width: 150px; border-left: 0;" name="element_1"  placeholder="Email">
+</div>
+<div class="controls">
+<input type="text" id="element_2" style="width: 150px; border-left: 0;" name="element_2"  placeholder="Email Again">
+</div>
+</div>
+<div class="control-group">
+<div class="controls">
+<input type="password" name="element_3" style="width: 150px; border-left: 0;" id="element_3" placeholder="Password">
+</div>
+<div class="controls">
+<input type="password" name="element_4" style="width: 150px; border-left: 0;" id="element_4" placeholder="Password Again">
+</div>
+</div>
+<div class="control-group">
+<div class="controls">
+                        <input id="element_4_1" name="element_4_1" class="element checkbox" type="checkbox" value="1" />
+<label class="choice" for="element_4_1">I Agree</label>
+<button type="submit" style="cursor:pointer; width: 150px; border: 0; background-color:#9EB847; " id="login_btn">Sign Up!</button>
+</div>
+</div>
+</form>
+</div>
+</div>
+
+

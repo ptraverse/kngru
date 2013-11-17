@@ -1,0 +1,45 @@
+{% include "base.html" %}
+{% block main %}
+<div id="form_container">
+<h1>&nbsp; </h1>
+<h2>All Posts</h2>
+<h3> 
+<br>Userg created on {{ userg.date_created }}. 
+<br>User last login was {{ user.last_login }}. 
+</h3> 
+<table border='1' align="center">
+<tr>
+<th>
+Created By
+</th>
+<th>
+Name
+</th>
+<th>
+Desc
+</th>
+<th>
+Debug
+</th>
+</tr>
+{% for p in postlist %}
+<tr 
+	{% if p.id == 1 %}
+		class="odd"
+	{% else %}
+		class="even"
+	{% endif %}
+>
+<td>{{ p.user_created }}</td>
+<td>{{ p.name }}</td>
+<td>{{ p.description  }}</td>
+<td><pre>{{ p.user_auth_created.password }} </pre></td>
+</tr>
+{% endfor %}
+</table>
+{% endblock %}
+</div>
+<pre>
+{{ p }} 
+</pre>
+<a href="/create-post">New Post</a>
