@@ -13,13 +13,13 @@
 Created By
 </th>
 <th>
-Name
+URL
 </th>
 <th>
 Desc
 </th>
 <th>
-Debug
+Link
 </th>
 </tr>
 {% for p in postlist %}
@@ -31,9 +31,9 @@ Debug
 	{% endif %}
 >
 <td>{{ p.user_created }}</td>
-<td>{{ p.name }}</td>
+<td>{{ p.url }}</td>
 <td>{{ p.description  }}</td>
-<td><pre>{{ p.user_auth_created.password }} </pre></td>
+<td><a href="/post/{{ p.get_related_post_hash }}"> Click Me </a> </td>
 </tr>
 {% endfor %}
 </table>

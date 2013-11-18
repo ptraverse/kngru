@@ -1,5 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
+import string
+import random
+
 
 class Userg(models.Model):
 	user = models.OneToOneField(User);
@@ -36,6 +39,7 @@ class Userg(models.Model):
 class Post(models.Model):
 	name = models.CharField(max_length=12)
 	url = models.CharField(max_length=200)
+	photo = models.FileField(upload_to="files")
 	description = models.TextField()
 	price = models.FloatField(default=1.00)
 	userg_created = models.ForeignKey(Userg, blank=True, null=True)
@@ -45,6 +49,20 @@ class Post(models.Model):
 		return self.name+" by "+self.user_created.repr()
 	def get_model_fields(model):
 		return model._meta.fields
+	def create_hash(self, size=8, chars=string.ascii_uppercase + string.digits):
+		hash_string = ''.join(random.choice(chars) for x in range(size))
+		ph = Post_Hash.objects.filter(hash=hash_string)
+		if ph.count() == 0:
+			return hash_string
+		else:
+			return create_hash(size,chars)
+	def get_related_post_hash(self):
+		ph = Post_Hash.objects.get(post = self)
+		return ph.hash 
+	
+class Post_Hash(models.Model):
+	post = models.ForeignKey(Post)
+	hash = models.CharField(max_length=8, unique=True)		 
 
 class Comment(models.Model):
 	parent_post = models.ForeignKey(Post)

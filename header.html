@@ -1,0 +1,13 @@
+{% if user %}
+
+<table style="background-color: ; margin-left: auto; margin-right: auto; ">
+<tr>
+<th width=15%><a href="/user/{{ user }}/">Home</a></th>
+<th><a href="/user/{{ user }}/friends/">Friends</a></th>
+<th><a href="/create-post/">SWagBRag Button</a></th>
+<th><a href="/user/{{ user }}/receipts/">Receipts</a></th>
+<th><a href="/user/{{ user }}/edit/">Me</a></th>
+</tr>
+</table>
+
+{% endif %}

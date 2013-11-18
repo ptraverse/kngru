@@ -1,12 +1,13 @@
+{% include "base.html" %}
+{% block main %}
+<div id="form_container">
+<h1>&nbsp; </h1>
+<h2>Single Post</h2>
 
-{% block content %}
-<h1>Single Post (todo)</h1>
+{{ post.description }}
+<br>
+<br>
 
-{{ post.name  }}
+{{ post.url }} 
 
-<table border='1'>
-<tr>
-<td>User</td><td>Ad</td></tr>
-</table>
-Lazy homepage for now:w
 {% endblock %}

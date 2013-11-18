@@ -14,6 +14,18 @@ from gimmeapp.forms import PostForm
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 
+def user_home(request, user):
+	return render(request, "user_home.html" )
+
+def user_friends(request, user):
+	return render(request, "user_friends.html" )
+
+def user_receipts(request, user):
+	return render(request, "user_receipts.html" )
+
+def user_edit(request, user):
+	return render(request, "user_edit.html" )
+
 def log_in(request):
 	if request.method=='POST':
 		username = request.POST.get("username","")
@@ -52,7 +64,13 @@ def create_post(request):
 		p.user_auth_created = request.user
 		p.name = request.POST.get("element_2","")
 		p.description = request.POST.get("element_3","")
-		# p.price = request.POST.get("element_4","")
+		p.url = request.POST.get("element_url","")
+		h = Post_Hash.objects.create(post=p, hash=p.create_hash())
+		#try:
+		#	h.hash = h.get_hash()
+		#except IntegrityError:
+		#	h.hash = "error" 
+		h.save()
 		p.save()
         	postlist = Post.objects.all()
 		return HttpResponseRedirect('../allposts')
@@ -69,8 +87,9 @@ def sign_up(request):
 	else:
 		return render(request,'preforms/form/sign_up_form.html' )
 
-def view_post(request,post):
-	p = Post.objects.get(id=post.id)
+def view_post(request,post_hash):
+	ph = Post_Hash.objects.get(hash=post_hash)
+	p = ph.post
 	return render_to_response('post.html', {  "post":p } )
 
 def view_all_posts(request):
@@ -80,9 +99,6 @@ def view_all_posts(request):
 		p.save()
 		postlist = [] 
 		postlist.append(p)
-	#emailist = []
-	#for p in postlist:
-	#	emaillist.append(Userg.get_user_email())
 	userg = Userg.objects.get(user=request.user)	
 	return render(request, 'allposts.html', { "postlist":postlist , "userg":userg }  )
 
