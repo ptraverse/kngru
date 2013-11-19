@@ -1,13 +1,14 @@
 {% include "base.html" %}
 {% block main %}
-<div id="form_container">
+<a href="../url-redirect/{{ hash }}">
+<div id="form_container" style="border-style:solid;">
 <h1>&nbsp; </h1>
 <h2>Single Post</h2>
 
 {{ post.description }}
 <br>
 <br>
-
-{{ post.url }} 
+ </div>
+ </a>
 
 {% endblock %}

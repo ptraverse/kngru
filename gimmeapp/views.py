@@ -11,7 +11,7 @@ from gimmeapp.models import Userg
 from gimmeapp.models import *
 from datetime import datetime    
 from gimmeapp.forms import PostForm
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 
 def user_home(request, user):
@@ -41,7 +41,9 @@ def log_in(request):
 		return render(request,'login.html' )
 #def log_in(request): 
 			
-
+def log_out(request):
+	logout(request)
+	return HttpResponseRedirect('../')
 
 def landing_page(request):
 	return render(request, 'preforms/form/landing_page.html' )
@@ -90,7 +92,13 @@ def sign_up(request):
 def view_post(request,post_hash):
 	ph = Post_Hash.objects.get(hash=post_hash)
 	p = ph.post
-	return render_to_response('post.html', {  "post":p } )
+	return render_to_response('post.html', {  "post":p , "hash":post_hash } )
+
+def url_redirect(request,post_hash):
+	ph = Post_Hash.objects.get(hash=post_hash)
+	p = ph.post
+	# TODO add a bunch of logic here
+	return HttpResponseRedirect(p.url)
 
 def view_all_posts(request):
 	postlist = Post.objects.all()	

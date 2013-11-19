@@ -62,7 +62,9 @@ class Post(models.Model):
 	
 class Post_Hash(models.Model):
 	post = models.ForeignKey(Post)
-	hash = models.CharField(max_length=8, unique=True)		 
+	hash = models.CharField(max_length=8, unique=True)
+	def get_related_post(self):
+		return self.post		 
 
 class Comment(models.Model):
 	parent_post = models.ForeignKey(Post)

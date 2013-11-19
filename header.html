@@ -1,4 +1,4 @@
-{% if user %}
+{% if user != AnonymousUser %}
 
 <table style="background-color: ; margin-left: auto; margin-right: auto; ">
 <tr>
@@ -7,7 +7,11 @@
 <th><a href="/create-post/">SWagBRag Button</a></th>
 <th><a href="/user/{{ user }}/receipts/">Receipts</a></th>
 <th><a href="/user/{{ user }}/edit/">Me</a></th>
+<th>|</th>
+<th><a href="/log-out/">Logout</a></th>
 </tr>
 </table>
+
+{{ user }}
 
 {% endif %}
