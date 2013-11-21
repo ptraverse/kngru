@@ -1,0 +1,36 @@
+{% include "base.html" %}
+{% block main %}
+<div id="form_container">
+<form id="view_target" class="appnitro"  method="POST" action="" > {% csrf_token %}
+ 
+	<div class="form_description">
+		<h2>View Target</h2>
+	</div>		
+
+	<li id="li_url" >
+	<div>
+		This will redirect to {{ target.url }} in x seconds.  
+	</div> 
+	</li>
+
+<br>
+
+	<li id="li_short" >
+	<div>
+		The short is {{ target.short }} 
+	</div> 
+	</li>
+
+<br>
+
+	<li id="li_participate" >
+	<div>
+ 		The participation was {{ target.PPCContract }}  
+	</div> 
+	</li>
+<br>
+
+
+</form>
+</div>
+{% endblock %}

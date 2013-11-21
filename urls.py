@@ -23,6 +23,7 @@ urlpatterns = patterns('',
     
     url(r'^target','gim3.gimmeapp.views.target'),
     url(r'^create-target','gim3.gimmeapp.views.create_target'),
+    url(r'^t/(.+)/','gim3.gimmeapp.views.view_target'),
     
     url(r'','gim3.gimmeapp.views.landing_page'),
     url(r'^(.+)','gim3.gimmeapp.views.e404_page'),

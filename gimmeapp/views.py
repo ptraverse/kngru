@@ -18,6 +18,10 @@ from django.contrib.auth.models import User
 def target(request):
 	return render(request, "target.html" )
 
+def view_target(request, short):
+	t = Target.objects.get(short=short)
+	return render(request, "view_target.html", {"target":t})
+
 def create_target(request):
 	if request.method == 'POST': # If the form has been submitted...
 		t = Target.objects.create()
