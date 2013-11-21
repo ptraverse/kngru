@@ -1,0 +1,38 @@
+{% include "base.html" %}
+{% block main %}
+<div id="form_container">
+<form id="target" class="appnitro"  method="POST" action="/create-target/" > {% csrf_token %}
+ 
+	<div class="form_description">
+		<h2>Create Target</h2>
+	</div>		
+
+	<li id="li_url" >
+	<div>
+		<input id="element_url" name="element_url" class="element text medium" type="text" maxlength="255" value="" placeholder="Target URL" /> 
+	</div> 
+	</li>
+
+<br>
+
+	<li id="li_short" >
+	<div>
+		<input id="element_short" name="element_short" class="element text medium" type="text" maxlength="255" value="" placeholder="Custom Short (optional)" /> 
+	</div> 
+	</li>
+
+<br>
+
+	<li id="li_participate" >
+	<div>
+ 		<input id="element_participate" name="element_participate" class="element checkbox" type="checkbox" value="1" />
+		<label class="choice" for="element_participate">Yes I would like to maybe get some free cash *</label> 
+	</div> 
+	</li>
+<br>
+
+<button type="submit" style="cursor:pointer; width: 150px; border: 0; background-color:#9EB847; " id="create_target_btn">CREATE!</button>
+
+</form>
+</div>
+{% endblock %}

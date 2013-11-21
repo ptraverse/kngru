@@ -6,6 +6,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',            
 	url(r'^create-post','gim3.gimmeapp.views.create_post'),
+	url(r'^new-post','gim3.gimmeapp.views.new_post_form'),
 	url(r'^allposts','gim3.gimmeapp.views.view_all_posts'),
 				
 	url(r'^post/(.*)','gim3.gimmeapp.views.view_post'),
@@ -20,10 +21,13 @@ urlpatterns = patterns('',
     url(r'^user/(.*)/edit','gim3.gimmeapp.views.user_edit'),
     url(r'^user/(.*)','gim3.gimmeapp.views.user_home'),
     
+    url(r'^target','gim3.gimmeapp.views.target'),
+    url(r'^create-target','gim3.gimmeapp.views.create_target'),
+    
     url(r'','gim3.gimmeapp.views.landing_page'),
     url(r'^(.+)','gim3.gimmeapp.views.e404_page'),
     
-	# url(r'^new-post','gim3.gimmeapp.views.new_post_form'),
+	
     # url(r'^preform','gim3.gimmeapp.views.preform'),
     # url(r'^hello_world/(.*)','gim3.gimmeapp.views.hello_world'),
 	

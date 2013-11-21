@@ -2,8 +2,17 @@ from django.db import models
 from django.contrib.auth.models import User
 import string
 import random
+from datetime import datetime    
 
-
+class Target(models.Model):
+	url = models.CharField(max_length=256)
+	short = models.CharField(max_length=16)
+	PPCContract = models.BooleanField(default=False)
+	User_created = models.ForeignKey(User, blank=True, null=True)
+	date_created = models.DateTimeField(auto_now_add=True)
+	def check(self, element_short):
+		return False;
+	
 class Userg(models.Model):
 	user = models.OneToOneField(User);
 	name = models.CharField(max_length=12)
