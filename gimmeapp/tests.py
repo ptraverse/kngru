@@ -16,6 +16,3 @@ class SimpleTest(TestCase):
         self.assertEqual(1 + 1, 2)
 
 
-p = Post.object.create()
-p.name = "TestName"
-p.save()

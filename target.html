@@ -1,6 +1,6 @@
-{% include "base.html" %}
+{% include "base2.html" %}
 {% block main %}
-<div id="form_container">
+<!-- <div id="form_container">
 <form id="target" class="appnitro"  method="POST" action="/create-target/" > {% csrf_token %}
  
 	<div class="form_description">
@@ -31,8 +31,20 @@
 	</li>
 <br>
 
-<button type="submit" style="cursor:pointer; width: 150px; border: 0; background-color:#9EB847; " id="create_target_btn">CREATE!</button>
+<button type="submit" style="cursor:pointer; width: 150px; border: 0; background-color:#5AB847; " id="create_target_btn">CREATE!</button>
 
 </form>
 </div>
+-->
+
+<div id="new_target_container_div" style="height: 320px; background-color: #5AB847; border-style: solid; width: 300px; float: right; margin-right: 160px;">
+<div id="new_target_div" style="vertical-align: middle; height: 60px; border-style: dashed; ">
+{% include "new_target_div.html" %}
+</div>
+<div id="new_target_dropdown_div" style="vertical-align: middle; height: 250px; border-style: dashed;">
+NEW TARGET DROPDOWN DIV
+</div>
+</div>
+
 {% endblock %}
+{

@@ -1,0 +1,18 @@
+This file is to keep track of all apt-get's and pip's that are needed to run the app
+Also to make sure everything is in the right folders
+
+apt-get install's:
+	python
+	python-django
+	python-pip
+	openssh-server
+	dkms
+	gcc 
+	make
+	mysql
+	virtualenv (?)
+	
+	
+pip install's:
+	bitly_api
+	

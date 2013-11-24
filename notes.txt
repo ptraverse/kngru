@@ -1,0 +1,27 @@
+Goal
+
+to write a unit test to make sure intergation with
+the bitly api works
+
+will need
+api keys
+username
+bitly generic access token
+	1214d30c74adf88608b83bdc8eac7b053a57b6f4
+Redirect URL 
+	http://ec2-174-129-81-83.compute-1.amazonaws.com/new_soapy/index.php
+Client ID: 
+	cfd992841301aabcd843e8ed4622b9c88e320e8e
+Client Secret: 
+	c5955c440b750b215924bd08d1b79518ca4a82c4
+Generic Access Token
+	1214d30c74adf88608b83bdc8eac7b053a57b6f4
+
+
+biliy api python lib - pip install bitly_api
+http://www.pythonforbeginners.com/code-snippets-source-code/bitly-shortener-with-python/
+
+
+view create_target():
+	-bitly.shorten(url)
+	-
