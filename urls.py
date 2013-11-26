@@ -22,7 +22,9 @@ urlpatterns = patterns('',
     url(r'^user/(.*)','gim3.gimmeapp.views.user_home'),
     
     url(r'^target','gim3.gimmeapp.views.target'),
+    url(r'^create-target2','gim3.gimmeapp.views.create_target2'),
     url(r'^create-target','gim3.gimmeapp.views.create_target'),
+    url(r'^create_target_json','gim3.gimmeapp.views.create_target_json'),
     url(r'^t/(.+)/','gim3.gimmeapp.views.view_target'),
     
     url(r'','gim3.gimmeapp.views.landing_page'),

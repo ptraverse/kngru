@@ -1,8 +1,36 @@
+<script type='text/javascript' src='http://code.jquery.com/jquery-1.8.2.js'></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#ajax_create_target_btn").click(function() {
+		var input_string = $("#element_url").val();
+		$.ajax({
+			url : "/create_target_json",
+			type : "POST",
+			dataType: "json",
+			data : {
+				client_response : input_string,
+				csrfmiddlewaretoken: '{{ csrf_token }}'
+				},
+				success : function(json) {
+					$('#new_target_dropdown_div').append('<marquee>'+json.server_response.url+'</marquee>');
+				},
+				error : function(xhr,errmsg,err) {
+					alert(xhr.status + ": " + xhr.responseText);
+				}
+			});
+		return false;
+	});
+});
+</script>
 <div id="form_container">
-<form id="target" class="appnitro"  method="POST" action="/create-target/" > {% csrf_token %}		
+<form id="target" class="appnitro"  method="POST" > {% csrf_token %}		
 	
 		<input id="element_url" name="element_url" style="width: 220px" class="element text medium" type="text" maxlength="180" value="" placeholder="Paste URL Here" /> 
 	 	<br>
+	 	<!-- 
 	 	<button type="submit" style="cursor:pointer; width: 150px; border: 0; background-color:#5AB847; " id="create_target_btn">CREATE!</button>
-	 
+	 	 -->
+	 	 <button type="submit" style="cursor:pointer; width: 150px; border: 0; background-color:#5AB847; " id="ajax_create_target_btn">Ajax create</button>
+</form>
+</div>
 	
